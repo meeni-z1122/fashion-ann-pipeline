@@ -7,7 +7,7 @@ End-to-end machine learning pipeline for Fashion-MNIST image classification usin
 Classify Fashion-MNIST images into 10 clothing categories using a reproducible TensorFlow ANN pipeline.
 
 ## Technologies
-
+Note: setup verified on Windows + PowerShell.
 - Python
 - TensorFlow
 - Git
