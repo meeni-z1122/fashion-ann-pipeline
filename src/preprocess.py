@@ -5,6 +5,8 @@ import yaml
 from sklearn.model_selection import train_test_split
 import numpy as np
 
+import os
+os.makedirs("data/processed", exist_ok=True)
 
 with open("params.yaml") as f:
     params = yaml.safe_load(f)

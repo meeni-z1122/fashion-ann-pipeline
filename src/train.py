@@ -6,6 +6,9 @@ import pandas as pd
 from tensorflow import keras
 from tensorflow.keras import layers
 
+import os
+os.makedirs("models", exist_ok=True)
+
 with open("params.yaml") as f:
     params = yaml.safe_load(f)["train"]
 
