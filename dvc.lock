@@ -23,8 +23,13 @@ stages:
       nfiles: 4
     - path: src/preprocess.py
       hash: md5
+<<<<<<< HEAD
       md5: 7a3898ec82f289cc47be4c698b3fac94
       size: 1200
+=======
+      md5: 83f13173b0869d41ecd0f36c50a44bd5
+      size: 1195
+>>>>>>> teammate-sim
     params:
       params.yaml:
         preprocess.seed: 42
@@ -32,7 +37,11 @@ stages:
     outs:
     - path: data/processed
       hash: md5
+<<<<<<< HEAD
       md5: ca3c7787e7c798c3d0f924d0c6307b2a.dir
+=======
+      md5: c1fbe8900ee27c153f61c94b5621166b.dir
+>>>>>>> teammate-sim
       size: 219590768
       nfiles: 6
   train:
@@ -40,7 +49,11 @@ stages:
     deps:
     - path: data/processed
       hash: md5
+<<<<<<< HEAD
       md5: ca3c7787e7c798c3d0f924d0c6307b2a.dir
+=======
+      md5: c1fbe8900ee27c153f61c94b5621166b.dir
+>>>>>>> teammate-sim
       size: 219590768
       nfiles: 6
     - path: src/train.py
@@ -57,23 +70,39 @@ stages:
     outs:
     - path: models/history.csv
       hash: md5
+<<<<<<< HEAD
       md5: 3e2b7bb90c02d97887d61209cdd2ae91
       size: 811
     - path: models/model.h5
       hash: md5
       md5: e4255d5292e35994c140c4659fb268d1
+=======
+      md5: b6f9965f978ba8d0da99c78fc58bd930
+      size: 814
+    - path: models/model.h5
+      hash: md5
+      md5: 9301d4b94268b989cb4aca66f8f8e3d9
+>>>>>>> teammate-sim
       size: 2466096
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed
       hash: md5
+<<<<<<< HEAD
       md5: ca3c7787e7c798c3d0f924d0c6307b2a.dir
+=======
+      md5: c1fbe8900ee27c153f61c94b5621166b.dir
+>>>>>>> teammate-sim
       size: 219590768
       nfiles: 6
     - path: models/model.h5
       hash: md5
+<<<<<<< HEAD
       md5: e4255d5292e35994c140c4659fb268d1
+=======
+      md5: 9301d4b94268b989cb4aca66f8f8e3d9
+>>>>>>> teammate-sim
       size: 2466096
     - path: src/evaluate.py
       hash: md5
@@ -82,5 +111,10 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
+<<<<<<< HEAD
       md5: 6260eb6438883b54b60779a53912f325
       size: 80
+=======
+      md5: 9b9ea7c12a3d3edd63ab67e0c35759e3
+      size: 79
+>>>>>>> teammate-sim
