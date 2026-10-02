@@ -12,9 +12,12 @@ with open("params.yaml") as f:
     params = yaml.safe_load(f)
 
 
-x_train_full = np.load("data/raw/x_train.npy").reshape(-1, 784) / 255.0
+x_train_full = np.load("data/raw/x_train.npy").reshape(-1, 784).astype("float32")
+x_train_full = (x_train_full - x_train_full.min()) / (x_train_full.max() - x_train_full.min())
 y_train_full = np.load("data/raw/y_train.npy")
-x_test = np.load("data/raw/x_test.npy").reshape(-1, 784) / 255.0
+
+x_test = np.load("data/raw/x_test.npy").reshape(-1, 784).astype("float32")
+x_test = (x_test - x_test.min()) / (x_test.max() - x_test.min())
 y_test = np.load("data/raw/y_test.npy")
 
 x_train, x_val, y_train, y_val = train_test_split(
