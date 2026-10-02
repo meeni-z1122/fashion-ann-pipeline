@@ -4,6 +4,8 @@ import yaml
 
 from sklearn.model_selection import train_test_split
 import numpy as np
+from sklearn.preprocessing import StandardScaler
+
 
 import os
 os.makedirs("data/processed", exist_ok=True)
@@ -12,9 +14,14 @@ with open("params.yaml") as f:
     params = yaml.safe_load(f)
 
 
-x_train_full = np.load("data/raw/x_train.npy").reshape(-1, 784) / 255.0
+x_train_full = np.load("data/raw/x_train.npy").reshape(-1, 784).astype("float32")
+x_test = np.load("data/raw/x_test.npy").reshape(-1, 784).astype("float32")
+
+scaler = StandardScaler()
+x_train_full = scaler.fit_transform(x_train_full)
+x_test = scaler.transform(x_test)
+
 y_train_full = np.load("data/raw/y_train.npy")
-x_test = np.load("data/raw/x_test.npy").reshape(-1, 784) / 255.0
 y_test = np.load("data/raw/y_test.npy")
 
 x_train, x_val, y_train, y_val = train_test_split(
